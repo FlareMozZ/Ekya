@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NinjaScribe - P2P Document Editor</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <div id="titlebar">
+    <pear-ctrl></pear-ctrl>
+    <div class="app-title">
+      <img src="assets/logo.svg" alt="NinjaScribe" class="logo">
+      <h1>NinjaScribe</h1>
+    </div>
+  </div>
+
+  <div class="container">
+    <aside class="sidebar">
+      <div class="user-profile">
+        <div class="avatar">
+          <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+          <span class="status-indicator online"></span>
+        </div>
+        <div class="user-level">
+          <span class="level">Lvl 5</span>
+          <div class="progress-bar">
+            <div class="progress" style="width: 65%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="document-actions">
+        <button id="create-document" class="action-btn">
+          <span class="icon">📄</span>
+          <span>New Document</span>
+        </button>
+        <div class="separator">- or -</div>
+        <form id="join-form">
+          <input required id="join-document-topic" type="text" placeholder="Document ID" />
+          <button type="submit" id="join-document" class="action-btn">
+            <span class="icon">🔗</span>
+            <span>Join Document</span>
+          </button>
+        </form>
+      </div>
+
+      <div class="active-users">
+        <h3>Active Users</h3>
+        <ul id="users-list"></ul>
+      </div>
+
+      <div class="achievements">
+        <h3>Achievements</h3>
+        <div class="achievement-list">
+          <div class="achievement unlocked" title="First Edit">✏️</div>
+          <div class="achievement unlocked" title="Shared Document">🔗</div>
+          <div class="achievement" title="10 Documents Created">🏆</div>
+          <div class="achievement" title="1 Hour Collaboration">⏱️</div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="content">
+      <div id="setup" class="setup-screen">
+        <div class="welcome-message">
+          <h2>Welcome to NinjaScribe</h2>
+          <p>Create a new document or join an existing one to start collaborating in real-time.</p>
+        </div>
+      </div>
+
+      <div id="loading" class="loading-screen hidden">
+        <div class="spinner"></div>
+        <p>Connecting to the document...</p>
+      </div>
+
+      <div id="editor" class="editor-container hidden">
+        <div class="document-info">
+          <div class="document-title">
+            <input type="text" id="doc-title" placeholder="Untitled Document" value="Untitled Document">
+          </div>
+          <div class="connection-info">
+            <span>Document ID: <span id="document-topic" class="document-id"></span></span>
+            <span>Peers: <span id="peers-count">0</span></span>
+          </div>
+        </div>
+
+        <div class="toolbar">
+          <!-- Toolbar groups remain the same as original -->
+        </div>
+
+        <div id="document" class="document-content" contenteditable="true"></div>
+
+        <div class="status-bar">
+          <div class="word-count">Words: <span id="word-count">0</span></div>
+          <div class="sync-status">
+            <span id="sync-indicator" class="synced">Synced</span>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div id="user-cursor-template" class="hidden">
+    <div class="remote-cursor">
+      <div class="cursor-flag">
+        <span class="cursor-name"></span>
+      </div>
+      <div class="cursor-caret"></div>
+    </div>
+  </div>
+</body>
+</html>
