@@ -63,6 +63,26 @@
             </button>
           </div>
         </form>
+        <div id="recent-docs" class="recents-container"></div>
+        <div id="doc-id-modal" class="modal hidden">
+          <div class="modal-content">
+            <span id="close-doc-id-modal" class="close">&times;</span>
+            <p>Your Document ID is:</p>
+            <p id="doc-id-display" class="doc-id-display"></p>
+            <button id="copy-doc-id-btn" class="action-btn secondary">Copy Doc ID</button>
+          </div>
+        </div>
+        <button id="open-history" class="action-btn secondary">History</button>
+        <div id="history-modal">
+          <div class="modal-content">
+            <span class="close-history" id="close-history-modal">&times;</span>
+            <h2>All Edited Documents</h2>
+            <div class="history-list" id="history-list"></div>
+          </div>
+        </div>
+
+        <button id="view-storage" class="action-btn secondary">View Local Storage</button>
+<button id="clear-storage" class="action-btn secondary">Clear Local Storage</button>
       </div>
     </aside>
 
@@ -110,6 +130,11 @@
             <div class="peers-info">
               <span>Connected Peers:</span>
               <span id="peers-count" class="peers-count">0</span>
+            </div>
+            <div>
+              <button id="save-txt" class="toolbar-btn" title="Save as Text">
+                <i class="fas fa-file-txt"></i> Save as Text
+              </button>
             </div>
           </div>
         </div>

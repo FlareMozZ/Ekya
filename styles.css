@@ -732,3 +732,138 @@ pear-ctrl[data-platform="darwin"] {
     overflow-x: auto;
   }
 }
+
+/* ...existing code... */
+
+/* Recents container adjusted for vertical layout */
+.recents-container {
+  display: flex;
+  flex-direction: column;  /* Top-down */
+  gap: 0.5rem;
+  margin-top: 1rem;
+  max-height: 300px;       /* You can limit height if desired, then scroll */
+  overflow-y: auto;
+}
+
+.recents-container button {
+  border: 1px solid #ccc;
+  background-color: #f3f3f3;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: left;        /* Ensure text is aligned properly for longer titles */
+}
+
+.recents-container button:hover {
+  background-color: #e0e0e0;
+}
+
+/* History modal styling */
+#history-modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+}
+
+#history-modal.show {
+  display: flex; /* or block */
+}
+
+#history-modal .modal-content {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 6px;
+  min-width: 300px;
+  max-height: 80vh; /* limit vertical height */
+  overflow-y: auto;
+  text-align: center;
+  position: relative;
+}
+
+#history-modal .close-history {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+.history-list button {
+  border: 1px solid #ccc;
+  background-color: #f3f3f3;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  text-align: left;
+}
+.history-list button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Copy button inside the modal (optional style) */
+.copy-btn {
+  display: inline-block;
+  margin-top: 0.5rem;
+  background-color: #00b894;
+  color: #fff;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.copy-btn:hover {
+  background-color: #019170;
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.5);
+  visibility: hidden;
+  z-index: 999;
+}
+.modal-content {
+  background: #ffffff;
+  padding: 1rem;
+  border-radius: 6px;
+  min-width: 300px;
+  text-align: center;
+  position: relative;
+}
+
+.modal.hide {
+  display: none;
+}
+.modal.show {
+  display: block; /* or flex */
+}
+.hidden {
+  visibility: hidden;
+}
+.close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.doc-id-display {
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
